@@ -91,3 +91,10 @@ if "mezzanine.galleries" in settings.INSTALLED_APPS:
         pass
     admin.site.unregister(Gallery)
     admin.site.register(Gallery, TransGalleryAdmin)
+
+if "mezzanine.generic" in settings.INSTALLED_APPS:
+    from mezzanine.generic.models import Keyword
+    class KeywordTranslationOptions(TranslationOptions):
+        pass
+    translator.register(Keyword, KeywordTranslationOptions)
+    
